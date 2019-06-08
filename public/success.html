@@ -11,20 +11,45 @@
   <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-  <header role="header">
-    <h1>Here is what you told us...</h1>
+  <header class="app-header" role="header">
+    <div class="app-header__container app-width-container">
+      <div class="app-grid-row">
+        <div class="app-grid-column-two-thirds">
+          <h1 class="app-heading-xl">Here is what you told us...</h1>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main role="main">
-    <!-- Print details provided -->
-    <ul id="print-list"></ul>
-  </main>
+  <div class="app-width-container">
+    <a href="index.html">Go back to the home page</a>
+    <main class="app-main-wrapper" role="main">
+      <div class="app-grid-row">
+        <div class="app-grid-column-two-thirds">
+          <!-- Print details provided -->
+          <ul id="print-list"></ul>
+        </div>
+      </div>
+    </main>
+  </div>
 
-  <footer role="footer"></footer>
+  <footer role="footer">
+    <div class="app-header__container app-width-container">
+      <div class="app-grid-row">
+        <div class="app-grid-column-two-thirds">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="./app.js"></script>
 
 </body>
 

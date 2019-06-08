@@ -4,13 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You've been invited to Chris and Jo's wedding adventure</title>
+  <title>You&#700;ve been invited to Chris and Jo&#700;s wedding adventure</title>
 
   <!-- update the version number as needed -->
   <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,7 +22,7 @@
     <div class="app-header__container app-width-container">
       <div class="app-grid-row">
         <div class="app-grid-column-two-thirds">
-          <h1>You've been invited to Chris and Jo's wedding adventure</h1>
+          <h1 class="app-heading-xl">You&#700;ve been invited to Chris and Jo&#700;s wedding adventure</h1>
         </div>
       </div>
     </div>
@@ -29,49 +32,64 @@
     <main class="app-main-wrapper" role="main">
       <div class="app-grid-row">
         <div class="app-grid-column-two-thirds">
-          <p>
-            It's happening on Saturday 18th of April 2020, from 10:00 in Leeds. The adventure starts in Leeds Town Hall. We're in the Broderick Suite so you need to come in the XXX Street entrance.
+          <p class="app-body">
+            It&#700;s happening on Saturday 18th of April 2020, from 10:00 in Leeds.
           </p>
-          <p>
-            After some important words, signing some documents, and maybe taking some pictures, the adventure moves to Leeds Industrial Museum. From 11:00, there will be a potluck lunch and a film or two on in the cinema. Our showings in the cinema will
-            finish at 13:00
+          <p class="app-body">
+            The adventure starts at Leeds Town Hall in the Brodrick Suite, so you need to come in the Calverley Street entrance.
           </p>
-          <p>
-            You'll be able to explore the museum and the grounds as much as you want until 16:00.
+          <p class="app-body">
+            After some important words, signing some documents, and maybe taking some pictures, the adventure moves to Leeds Industrial Museum.
           </p>
-          <p class="app-margin-bottom--3">
+          <p class="app-body">
+            From 11:00, there will be a potluck lunch and a film showing in the cinema.
+          </p>
+          <p class="app-body">
+            You&#700;ll be able to explore the museum and the grounds as much as you want until 16:00.
+          </p>
+          <p class="app-body app-margin-bottom--5">
             After that, anyone who wants to is welcome to come back to our house and have a few drinks.
           </p>
 
-          <h2>Important to know</h2>
-          <h3>What should you wear?</h3>
-          <p class="app-margin-bottom--2">
-            Something that you like and that's comfortable. We'll be dressed up but you don't have to if you don't want.
+          <h2 class="app-heading-l">Important to know</h2>
+          <h3 class="app-heading-m">What should I wear?</h3>
+          <p class="app-body app-margin-bottom--2">
+            Something that you like and that&#700;s comfortable. We&#700;ll be dressed up but you don&#700;t have to be, if you don&#700;t want.
           </p>
 
-          <h3>What food will there be?</h3>
-          <p class="app-margin-bottom--2">
-            We're ordering some of our favourite foods from around Leeds, but please bring something you'd like to eat if you can.
+          <h3 class="app-heading-m">What food will there be?</h3>
+          <p class="app-body app-margin-bottom--2">
+            We&#700;re ordering some of our favourite foods from around Leeds, but please bring something you&#700;d like to eat if you can.
           </p>
 
-          <h3>Can I bring someone?</h3>
-          <p class="app-margin-bottom--2">
-            You can totally bring someone that you like, and who's nice. Children are welcome, but there won't be many other children for them to play with.
+          <h3 class="app-heading-m">Can I bring someone?</h3>
+          <p class="app-body app-margin-bottom--2">
+            You can totally bring someone that you like, and who&#700;s nice. Children are welcome, but there won&#700;t be many other children for them to play with.
           </p>
 
-          <h3>How are we getting between the two places?</h3>
-          <p>
-            The places are about 3 miles apart at each stage, so we're probably going to get order some taxis on the day, but if you'd prefer the walk by the canal is nice and takes about an hour. A local bus also runs from by the Town Hall to near the
-            Museum. A taxi will be about £6, or the bus is £4.50.
+          <h3 class="app-heading-m">How are we getting between the two places?</h3>
+          <p class="app-body">
+            The places are about 3 miles apart at each stage, so we&#700;re probably going to order some taxis on the day. Each taxi will be about £6.
           </p>
-          <p class="app-margin-bottom--3">
-            There's free parking at the museum, and there are a few car parks near the Town Hall.
+          <p class="app-body">
+            If you&#700;d prefer to walk, the path by the canal is nice and takes about 45 minutes.
+          </p>
+          <p class="app-body">
+            Alternatively, a local bus runs from by the Town Hall to near the Museum and is £4.50.
+          </p>
+          <p class="app-body app-margin-bottom--5">
+            If you&#700;d prefer to drive there&#700;s free parking at the museum, and there are a few car parks near the Town Hall.
           </p>
 
-          <h2>Sound like a good plan?</h2>
-          <p class="app-margin-bottom--4">
-            Let us know you'll be there, who's coming and which bits you want to come to on the form below!
+          <h2 class="app-heading-l">Sound like a good plan?</h2>
+          <p class="app-body app-margin-bottom--4">
+            Let us know you&#700;ll be there, who&#700;s coming and which bits you want to come to on the form below!
           </p>
+        </div>
+
+        <div class="app-grid-column-one-third">
+          <img src="./assets/img/website_sidebar.png" alt="" />
+        </div>
 
           <!--
         Form:
@@ -88,57 +106,79 @@
         Q: Who else is coming with you? (We need names of any plus ones and kids names too)
         Free text
       -->
-          <h3>RSVP form:</h3>
-          <fieldset class="app-fieldset app-margin-bottom--0">
+      <div class="app-grid-column-two-thirds">
+        <div class="app-rsvp">
+          <h3 class="app-heading-m app-rsvp__heading">RSVP form:</h3>
+          <fieldset class="app-fieldset" aria-describedby="guests-hint">
             <legend class="app-fieldset__legend app-margin-bottom--1">
-              <p class="app-fieldset-label__normal app-margin-bottom--0">
-                Tell us who is coming
-              </p>
+              Who is coming?
             </legend>
-
-            <label class="app-text__label" for="name">Who are you?</label>
-            <input class="app-text__input" type="text" id="name" name="name"><br>
-
-            <label class="app-text__label" for="plusOne">Who is coming with you?</label>
-            <input class="app-text__input" type="text" id="plusOne" name="plusOne"><br>
-          </fieldset>
-          <fieldset class="app-fieldset app-margin-bottom--2">
-            <legend class="app-fieldset__legend">
-              <p class="app-fieldset-label__normal app-margin-bottom--0">
-                Which bits of the day are you coming to?
-              </p>
-            </legend>
-
-            <div class="app-checkboxes__item">
-              <label class="app-checkboxes__label" for="wordsBit">I'll be there for the words bit</label>
-              <input class="app-checkboxes__input" type="checkbox" id="wordsBit" name="wordsBit" value="true">
-              <span class="app-checkmark"></span>
+            <span id="guests-hint" class="app-hint">
+              Include plus ones and any children.
+            </span>
+            <div class="govuk-form-group app-margin-bottom--1">
+              <label class="app-text__label" for="name">Who are you?</label>
+              <input class="app-text__input" type="text" id="name" name="name">
             </div>
-            <div class="app-checkboxes__item">
-              <label class="app-checkboxes__label" for="museumBit">I'll be there for the museum bit</label>
-              <input class="app-checkboxes__input" type="checkbox" id="museumBit" name="museumBit" value="true">
-              <span class="app-checkmark"></span>
-            </div>
-            <div class="app-checkboxes__item">
-              <label class="app-checkboxes__label" for="drinksBit">I'll come to drinks at the house</label>
-              <input class="app-checkboxes__input" type="checkbox" id="drinksBit" name="drinksBit" value="true">
-              <span class="app-checkmark"></span>
-            </div>
-            <div class="app-checkboxes__item">
-              <label class="app-checkboxes__label" for="cantCome">I won't be at any of it</label>
-              <input class="app-checkboxes__input" type="checkbox" id="cantCome" name="cantCome" value="true">
-              <span class="app-checkmark"></span>
+            <div class="govuk-form-group app-margin-bottom--1">
+              <label class="app-text__label" for="plusOne">Who is coming with you?</label>
+              <textarea class="app-textarea" id="plusOne" name="plusOne" rows="5"></textarea>
             </div>
           </fieldset>
+          <fieldset class="app-fieldset app-margin-bottom--2" aria-describedby="option-hint">
+            <legend class="app-fieldset__legend app-margin-bottom--1">
+              Which bits of the day are you coming to?
+            </legend>
+            <span id="option-hint" class="app-hint">
+              Select all that apply.
+            </span>
+            <div class="app-checkboxes">
+              <div class="app-checkboxes__item">
+                <input class="app-checkboxes__input" type="checkbox" id="wordsBit" name="wordsBit" value="true">
+                <label class="app-checkboxes__label" for="wordsBit">I&#700;ll be there for the words bit</label>
+              </div>
+            </div>
+            <div class="app-checkboxes">
+              <div class="app-checkboxes__item">
+                <input class="app-checkboxes__input" type="checkbox" id="museumBit" name="museumBit" value="true">
+                <label class="app-checkboxes__label" for="museumBit">I&#700;ll be there for the museum bit</label>
+              </div>
+            </div>
+            <div class="app-checkboxes">
+              <div class="app-checkboxes__item">
+                <input class="app-checkboxes__input" type="checkbox" id="drinksBit" name="drinksBit" value="true">
+                <label class="app-checkboxes__label" for="drinksBit">I&#700;ll come to drinks at the house</label>
+              </div>
+            </div>
+            <div class="app-checkboxes">
+              <div class="app-checkboxes__item">
+                <input class="app-checkboxes__input" type="checkbox" id="cantCome" name="cantCome" value="true">
+                <label class="app-checkboxes__label" for="cantCome">I won&#700;t be at any of it</label>
+              </div>
+            </div>
+          </fieldset>
 
-          <button class="app-button app-margin-bottom--4" id="submitButton">Submit</button>
+          <button class="app-button app-margin-bottom--1" id="submitButton">Submit</button>
+        </div>
 
-          <script defer src="./app.js"></script>
         </div>
       </div>
     </main>
   </div>
-  <footer role="footer"></footer>
+
+  <footer role="footer">
+    <div class="app-header__container app-width-container">
+      <div class="app-grid-row">
+        <div class="app-grid-column-two-thirds">
+          <p class="app-body app-body-s app-body-legal">
+            Couple, cake and taxi icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com">www.flaticon.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script defer src="./app.js"></script>
 
 </body>
 
