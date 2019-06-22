@@ -18,65 +18,138 @@ const wordsBitField = document.querySelector("#wordsBit");
 const museumBitField = document.querySelector("#museumBit");
 const drinksBitField = document.querySelector("#drinksBit");
 const cantComeField = document.querySelector("#cantCome");
-
-const printList = document.querySelector("#print-list");
+const errorField = document.querySelector("#error");
 const form = document.querySelector("#submit-rsvp");
 
-var thisId;
+var allError = "Please fill in the form.";
+var almostError = "There's still things we need to know.";
+var nameError = "We need to know who you are.";
+var plusOneError = "Tell us if you are or aren't bringing someone.";
+var checkboxError = "Tell us if you are coming.";
 
-// creates elements and render answers
-function renderList (doc) {
-  let name = document.createElement('li');
-  let plusOne = document.createElement('li');
-  let li = document.createElement('li');
-
-  let attendingWords = document.createElement('span');
-  let attendingMuseum = document.createElement('span');
-  let attendingDrinks = document.createElement('span');
-  let notAttending = document.createElement('span');
-
-  printList.setAttribute('data-id', doc.id);
-  name.textContent = doc.data().name;
-  plusOne.textContent = doc.data().plusOne;
-  attendingWords.textContent = doc.data().wordsBit;
-  attendingMuseum.textContent = doc.data().museumBit;
-  attendingDrinks.textContent = doc.data().drinksBit;
-  notAttending.textContent = doc.data().cantCome;
-
-  li.appendChild(attendingWords);
-  li.appendChild(attendingMuseum);
-  li.appendChild(attendingDrinks);
-  li.appendChild(notAttending);
-
-  printList.appendChild(name);
-  printList.appendChild(plusOne);
-  printList.appendChild(li);
+// checkbox can't come remove other checks
+function uncheckOthers(obj) {
+  if (obj.checked == true) {
+    wordsBitField.checked = false;
+    museumBitField.checked = false;
+    drinksBitField.checked = false;
+  }
 }
 
-// getting data
-firestore.collection('rsvps').get().then((snapshot) => {
-  snapshot.docs.forEach(doc => {
-    renderList(doc);
-  })
-})
+// checkboxes selected remove can't come
+function uncheckCant(obj) {
+  if (obj.checked == true) {
+    cantComeField.checked = false;
+  }
+}
+
+// Adds Element BEFORE NeighborElement
+Element.prototype.appendBefore = function(element) {
+  element.parentNode.insertBefore(this, element);
+}, false;
+// Adds Element AFTER NeighborElement
+Element.prototype.appendAfter = function(element) {
+  element.parentNode.insertBefore(this, element.nextSibling);
+}, false;
+// Remove error hints from DOM
+Element.prototype.remove = function() {
+  this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+  for(var i = this.length - 1; i >= 0; i--) {
+    if(this[i] && this[i].parentElement) {
+      this[i].parentElement.removeChild(this[i]);
+    }
+  }
+}
+
+function errorHint(field, message, id) {
+  field.classList.add('error')
+  // create new error hint before input
+  let text = document.createElement('span');
+  text.setAttribute('class', 'app-body app-error--message error-hint');
+  text.setAttribute('id', 'error-hint');
+  text.textContent = message;
+  text.appendBefore(document.getElementById(id))
+}
+
+function checkboxErrorHint(message, id) {
+  // create new error hint after hint text
+  let text = document.createElement('span');
+  text.setAttribute('class', 'app-body app-error--message error-hint');
+  text.setAttribute('id', 'error-hint');
+  text.textContent = message;
+  text.appendAfter(document.getElementById(id))
+}
+
+function errorMessage(message) {
+  // add red border if name empty
+  if (nameField.value == "") {
+    document.getElementById("nameDiv").classList.add('error--border')
+    errorHint(nameField, nameError, 'name')
+  }
+  // add red border if plus one empty
+  if (plusOneField.value == "") {
+    document.getElementById("plusOneDiv").classList.add('error--border')
+    errorHint(plusOneField, plusOneError, 'plusOne')
+  }
+  // add red border if no checkbox selected
+  if (wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    document.getElementById("checkboxes").classList.add('error--border')
+    checkboxErrorHint(checkboxError, 'option-hint')
+  }
+  // add error class to error div
+  errorField.setAttribute('class', 'app-error--true');
+  // create error message
+  let error = document.createElement('p');
+  error.setAttribute('class', 'app-body app-error--message app-margin-bottom--0');
+  error.textContent = message;
+  // add error message to error div
+  errorField.appendChild(error);
+}
 
 // adding data
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  firestore.collection('rsvps').add({
-    name: form.name.value,
-    plusOne: form.plusOne.value,
-    wordsBit: form.wordsBit.checked,
-    museumBit: form.museumBit.checked,
-    drinksBit: form.drinksBit.checked,
-    cantCome: form.cantCome.checked
-  }).then(function() {
-    alert("Thanks! We've received your reply.");
-  });
-  form.name.value = '';
-  form.plusOne.value = '';
-  form.wordsBit.checked = false;
-  form.museumBit.checked = false;
-  form.drinksBit.checked = false;
-  form.cantCome.checked = false;
+  // reset error div to be empty and hidden
+  errorField.innerHTML = "";
+  errorField.classList.remove('error')
+  // remove any error classes from input fields
+  nameField.classList.remove('error')
+  document.getElementById("nameDiv").classList.remove('error--border')
+  plusOneField.classList.remove('error')
+  document.getElementById("plusOneDiv").classList.remove('error--border')
+  // checkboxes remove error class
+  document.getElementById("checkboxes").classList.remove('error--border')
+  // remove error hints
+  document.getElementsByClassName("error-hint").remove()
+
+  if (nameField.value == "" && plusOneField.value == "" && wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    errorMessage(allError);
+  } else if (plusOneField.value == "" && wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    errorMessage(almostError);
+  } else if (nameField.value == "") {
+    errorMessage(nameError);
+  } else if (plusOneField.value == "") {
+    errorMessage(plusOneError);
+  } else if (wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    errorMessage(checkboxError);
+  } else {
+    firestore.collection('rsvps').add({
+      name: form.name.value,
+      plusOne: form.plusOne.value,
+      wordsBit: form.wordsBit.checked,
+      museumBit: form.museumBit.checked,
+      drinksBit: form.drinksBit.checked,
+      cantCome: form.cantCome.checked
+    }).then(function() {
+      alert("Thanks! We've received your reply.");
+    });
+    form.name.value = '';
+    form.plusOne.value = '';
+    form.wordsBit.checked = false;
+    form.museumBit.checked = false;
+    form.drinksBit.checked = false;
+    form.cantCome.checked = false;
+  }
 })
