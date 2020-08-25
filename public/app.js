@@ -144,6 +144,8 @@ form.addEventListener('submit', (e) => {
       cantCome: form.cantCome.checked
     }).then(function() {
       alert("Thanks! We've received your reply.");
+    }).catch(function(error) {
+      console.error("Error writing document: ", error);
     });
     form.name.value = '';
     form.plusOne.value = '';

@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You have successfully submitted your RSVP</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>You have successfully submitted your RSVP</title>
 
-  <!-- update the version number as needed -->
-  <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
-  <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/img/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="./assets/img/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="./assets/img/android-chrome-192x192.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="./assets/img/android-chrome-512x512.png" type="image/png" sizes="512x512">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico">
+    
+    <!-- update the version number as needed -->
+    <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+  </head>
 
-</head>
-
-<body>
-  <header class="app-header" role="header">
-    <div class="app-header__container app-width-container">
-      <div class="app-grid-row">
-        <div class="app-grid-column-two-thirds">
-          <h1 class="app-heading-xl">Here is what you told us...</h1>
+  <body>
+    <header class="app-header" role="header">
+      <div class="app-header__container app-width-container">
+        <div class="app-grid-row">
+          <div class="app-grid-column-two-thirds">
+            <h1 class="app-heading-xl">Here is what you told us...</h1>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="app-width-container">
-    <a href="index.html">Go back to the home page</a>
-    <main class="app-main-wrapper" role="main">
-      <div class="app-grid-row">
-        <div class="app-grid-column-two-thirds">
-          <!-- Print details provided -->
-          <ul id="print-list"></ul>
+    <div class="app-width-container">
+      <a href="index.html">Go back to the home page</a>
+      <main class="app-main-wrapper" role="main">
+        <div class="app-grid-row">
+          <div class="app-grid-column-two-thirds">
+            <!-- Print details provided -->
+            <ul id="print-list"></ul>
+          </div>
         </div>
-      </div>
-    </main>
-  </div>
-
-  <footer role="footer">
-    <div class="app-header__container app-width-container">
-      <div class="app-grid-row">
-        <div class="app-grid-column-two-thirds">
-      </div>
+      </main>
     </div>
-  </div>
-</footer>
 
-<script defer src="./app.js"></script>
+    <script defer src="./app.js"></script>
 
-</body>
+  </body>
 
 </html>
