@@ -15,7 +15,7 @@ const docRef = firestore.collection("rsvps").doc();
 const nameField = document.querySelector("#name");
 const plusOneField = document.querySelector("#plusOne");
 const wordsBitField = document.querySelector("#wordsBit");
-const museumBitField = document.querySelector("#museumBit");
+//const museumBitField = document.querySelector("#museumBit");
 const drinksBitField = document.querySelector("#drinksBit");
 const cantComeField = document.querySelector("#cantCome");
 const errorField = document.querySelector("#error");
@@ -34,7 +34,7 @@ var checkboxError = "Tell us if you are coming.";
 function uncheckOthers(obj) {
     if (obj.checked == true) {
         wordsBitField.checked = false;
-        museumBitField.checked = false;
+        //museumBitField.checked = false;
         drinksBitField.checked = false;
     }
 }
@@ -97,7 +97,7 @@ function errorMessage(message) {
         errorHint(plusOneField, plusOneError, 'plusOne')
     }
     // add red border if no checkbox selected
-    if (wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    if (wordsBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
         document.getElementById("checkboxes").classList.add('error--border')
         checkboxErrorHint(checkboxError, 'option-hint')
     }
@@ -127,15 +127,15 @@ form.addEventListener('submit', (e) => {
         // remove error hints
     document.getElementsByClassName("error-hint").remove()
 
-    if (nameField.value == "" && plusOneField.value == "" && wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    if (nameField.value == "" && plusOneField.value == "" && wordsBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
         errorMessage(allError);
-    } else if (plusOneField.value == "" && wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    } else if (plusOneField.value == "" && wordsBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
         errorMessage(almostError);
     } else if (nameField.value == "") {
         errorMessage(nameError);
     } else if (plusOneField.value == "") {
         errorMessage(plusOneError);
-    } else if (wordsBitField.checked == false && museumBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
+    } else if (wordsBitField.checked == false && drinksBitField.checked == false && cantComeField.checked == false) {
         errorMessage(checkboxError);
     } else {
         firestore.collection('rsvps').add({
