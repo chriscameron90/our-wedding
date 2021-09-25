@@ -15,7 +15,6 @@ const docRef = firestore.collection("rsvps").doc();
 const nameField = document.querySelector("#name");
 const plusOneField = document.querySelector("#plusOne");
 const wordsBitField = document.querySelector("#wordsBit");
-//const museumBitField = document.querySelector("#museumBit");
 const drinksBitField = document.querySelector("#drinksBit");
 const cantComeField = document.querySelector("#cantCome");
 const errorField = document.querySelector("#error");
@@ -34,7 +33,6 @@ var checkboxError = "Tell us if you are coming.";
 function uncheckOthers(obj) {
     if (obj.checked == true) {
         wordsBitField.checked = false;
-        //museumBitField.checked = false;
         drinksBitField.checked = false;
     }
 }
@@ -142,7 +140,6 @@ form.addEventListener('submit', (e) => {
             name: form.name.value,
             plusOne: form.plusOne.value,
             wordsBit: form.wordsBit.checked,
-            museumBit: form.museumBit.checked,
             drinksBit: form.drinksBit.checked,
             cantCome: form.cantCome.checked,
             dateSubmitted: dateSubmitted
@@ -154,7 +151,6 @@ form.addEventListener('submit', (e) => {
         form.name.value = '';
         form.plusOne.value = '';
         form.wordsBit.checked = false;
-        form.museumBit.checked = false;
         form.drinksBit.checked = false;
         form.cantCome.checked = false;
     }
